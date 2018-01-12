@@ -278,8 +278,8 @@ static void alarm_handler(int sig) { alarmFlag = 0; }
 // Initialize pins/SPI for output
 static PyObject *begin(DotStarObject *self) {
 	if(self->dataPin == 0xFF) { // Use hardware SPI
-		if((self->fd = open("/dev/spidev0.1", O_RDWR)) < 0) {
-			puts("Can't open /dev/spidev0.1 (try 'sudo')");
+		if((self->fd = open("/dev/spidev1.1", O_RDWR)) < 0) {
+			puts("Can't open /dev/spidev1.1 (try 'sudo')");
 			return NULL;
 		}
 		uint8_t mode = SPI_MODE_0 ; // | SPI_NO_CS;
